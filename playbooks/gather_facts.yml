@@ -1,0 +1,12 @@
+---
+- name: 'Gather facts on hosts'
+  hosts: 'all'
+
+  tasks:
+    - name: 'Gather facts'
+      ansible.builtin.setup: {}
+
+    - name: 'Show Operating System'
+      ansible.builtin.debug:
+        msg: "{{ ansible_os_family ~ ' ' ~ ansible_distribution_version }}"
+...
